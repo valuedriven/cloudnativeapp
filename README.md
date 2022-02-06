@@ -18,3 +18,5 @@ Eslint
 Prettier
 
 Husky
+
+## Step 4 - Configuration of json-server

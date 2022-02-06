@@ -3,4 +3,4 @@
 Example of application with best practices of cloud native and 12 factors-app.
 
 ## Initial step
- Create of remote repository 
+ Creation of remote repository 

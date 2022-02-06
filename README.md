@@ -2,21 +2,25 @@
 
 Example of application with best practices of cloud native and 12 factors-app.
 
-## Step 1
+## Base project
+
+### Step 1
 
 Creation of remote repository on GitHub.com
 
-## Step 2 - Initialization of root NodeJs project.
+### Step 2 - Initialization of root NodeJs project.
 
 npm init
 npm install
 
-## Step 3 - Configuration of quality tools:
+### Step 3 - Configuration of quality tools:
 
 Eslint
-
 Prettier
-
 Husky
 
-## Step 4 - Configuration of json-server
+### Step 4 - Configuration of json-server
+
+## Frontend module
+
+### Step 1 - Create NextJs project

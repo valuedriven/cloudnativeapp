@@ -1,5 +1,5 @@
+import { Typography } from '@mui/material';
 import Head from 'next/head';
-
 export default function Home() {
   return (
     <div>
@@ -8,10 +8,11 @@ export default function Home() {
         <meta name="description" content="Example of Cloud Native App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <p />
-        <h1>Welcome to Cloud Native App!</h1>
-      </main>
+      <div>
+        <Typography component="h4" variant="h4">
+          Welcome to Cloud Native App!
+        </Typography>
+      </div>
     </div>
   );
 }

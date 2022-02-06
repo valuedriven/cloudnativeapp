@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "name": "Product 1",
+      "price": "1.0",
+      "category": "Category 1",
+      "count": 1,
+      "rating": 4.4,
+      "id": 1
+    },
+    {
+      "name": "Product 2",
+      "price": "2.0",
+      "category": "Category 2",
+      "count": "2",
+      "rating": "2.2",
+      "id": 2
+    }
+  ]
+}

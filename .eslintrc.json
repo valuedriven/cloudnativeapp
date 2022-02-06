@@ -1,0 +1,21 @@
+{
+  "root": true,
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"]
+  }
+}

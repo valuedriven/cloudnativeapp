@@ -1,5 +1,6 @@
 import { Button, TableBody, TableCell, TableRow } from '@mui/material';
 import List from '@mui/material/List';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import PageContent from '../../components/pagetemplate/PageContent';
 import PageContentLabels from '../../components/pagetemplate/PageContentLabels';
@@ -24,13 +25,18 @@ const productsList = [
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const router = useRouter();
 
   const getProducts = async () => {
     setProducts(productsList);
   };
 
   const editProduct = async (id) => {
-    alert(`editProduct(): ${id}`);
+    try {
+      router.push(`/products/${id}`);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const deleteProduct = async (id) => {
@@ -38,7 +44,7 @@ export default function Products() {
   };
 
   const createProduct = async () => {
-    alert('createProduct()');
+    router.push('/products/-1');
   };
 
   useEffect(() => {

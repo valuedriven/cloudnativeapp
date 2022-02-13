@@ -1,0 +1,10 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "cloudnativedb-dev.db"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "cloudnativedb-tes.db"
+  }
+}

@@ -47,14 +47,10 @@ test('Update product', async () => {
   let product = await Product.create(productData);
   productData.name = 'Product updated';
   productData.category = 'Category updated';
-  console.log(product);
   const response = await request
     .put(`/products/${product.id}`)
     .send(productData);
-  console.log(response.text);
   expect(response.status).toBe(200);
-  console.log(response.text);
-  console.log(response.body);
   expect(response.body.name).toBe(productData.name);
   expect(response.body.category).toBe(productData.category);
 });

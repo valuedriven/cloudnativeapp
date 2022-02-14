@@ -104,4 +104,3 @@ dist
 .tern-port
 backend/cloudnativedb-tes.db
 backend/cloudnativedb-dev.db
-backend/cloudnativedb-tes.db

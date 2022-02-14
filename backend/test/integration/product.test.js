@@ -58,3 +58,18 @@ test('Update product', async () => {
   expect(response.body.name).toBe(productData.name);
   expect(response.body.category).toBe(productData.category);
 });
+
+test('Get product by id', async () => {
+  let productData = {
+    name: 'Product to get',
+    price: 1.1,
+    category: 'Category',
+    count: 10,
+    rating: 1.1,
+  };
+  let product = await Product.create(productData);
+  const response = await request.get(`/products/${product.id}`);
+  expect(response.status).toBe(200);
+  expect(response.body.name).toBe(productData.name);
+  expect(response.body.category).toBe(productData.category);
+});

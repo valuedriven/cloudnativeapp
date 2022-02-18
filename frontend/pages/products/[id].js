@@ -1,5 +1,6 @@
 import { Button, Card, Grid, ListItem } from '@mui/material';
 import List from '@mui/material/List';
+import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -122,15 +123,16 @@ export default function Product() {
                     >
                       Save
                     </Button>
-                    <Button
-                      variant="contained"
-                      type="submit"
-                      fullWidth
-                      color="primary"
-                      href="/products/"
-                    >
-                      Cancel
-                    </Button>
+                    <NextLink href="/products/" passHref>
+                      <Button
+                        variant="contained"
+                        type="submit"
+                        fullWidth
+                        color="primary"
+                      >
+                        Cancel
+                      </Button>
+                    </NextLink>
                   </ListItem>
                 </List>
               </form>

@@ -1,4 +1,4 @@
-import { Button, TableBody, TableCell, TableRow } from '@mui/material';
+import { Button, Table, TableBody, TableCell, TableRow } from '@mui/material';
 import List from '@mui/material/List';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -32,6 +32,14 @@ export default function Products() {
     }
   };
 
+  const createProduct = async () => {
+    try {
+      router.push('/products/-1');
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   const editProduct = async (id) => {
     try {
       router.push(`/products/${id}`);
@@ -43,14 +51,10 @@ export default function Products() {
   const deleteProduct = async (id) => {
     try {
       await deleteData('products', id);
-      router.push('/products/');
+      setProducts(products.filter((product) => product.id !== id));
     } catch (error) {
       console.error(error.message);
     }
-  };
-
-  const createProduct = async () => {
-    router.push('/products/-1');
   };
 
   useEffect(() => {
@@ -63,12 +67,14 @@ export default function Products() {
         <PageActions createProduct={createProduct} />
       </PageHeader>
       <PageContent>
-        <PageContentLabels labels={itemsLabels} />
-        <PageContentItems
-          products={products}
-          editProduct={editProduct}
-          deleteProduct={deleteProduct}
-        />
+        <Table>
+          <PageContentLabels labels={itemsLabels} />
+          <PageContentItems
+            products={products}
+            editProduct={editProduct}
+            deleteProduct={deleteProduct}
+          />
+        </Table>
       </PageContent>
     </List>
   );

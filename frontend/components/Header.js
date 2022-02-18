@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 
 export default function Header({ menuItems }) {
   return (
-    <div>
+    <>
       <Head>
         <title>Cloud Native App</title>
         <meta name="description" content="Example of Cloud Native App" />
@@ -26,12 +26,12 @@ export default function Header({ menuItems }) {
             Cloud Native App
           </Typography>
           {menuItems.map(({ href, title }) => (
-            <NextLink key={title} href={href}>
+            <NextLink key={title} href={href} passHref>
               <Button color="inherit">{title}</Button>
             </NextLink>
           ))}
         </Toolbar>
       </AppBar>
-    </div>
+    </>
   );
 }

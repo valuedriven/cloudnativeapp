@@ -12,7 +12,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
-    "sequelize": "^6.16.1"
+    "sequelize": "^6.16.1",
+    "winston": "^3.6.0"
   },
   "devDependencies": {
     "jest": "^27.5.1",

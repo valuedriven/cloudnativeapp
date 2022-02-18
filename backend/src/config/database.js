@@ -1,5 +1,6 @@
 const Config = require('../utils/config');
 Config.loadConfig();
+const { logger } = require('../utils/logger');
 
 module.exports = {
   dialect: process.env.DB_DIALECT,
@@ -9,6 +10,7 @@ module.exports = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   storage: process.env.DB_STORAGE,
+  logging: (msg) => logger.info(msg),
   define: {
     timestamps: true,
   },

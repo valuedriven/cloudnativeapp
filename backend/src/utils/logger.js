@@ -1,11 +1,20 @@
 'use strict';
 
-const winston = require('winston');
+const { createLogger, config, transports, format } = require('winston');
 
-const formatter = winston.format.combine(
-  winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-  winston.format.splat(),
-  winston.format.printf((info) => {
+const transportConsole = new transports.Console({
+  handleExceptions: true,
+});
+
+const transportFile = new transports.File({
+  filename: 'tmp/backend.log',
+  handleExceptions: true,
+});
+
+const formatter = format.combine(
+  format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+  format.splat(),
+  format.printf((info) => {
     const { timestamp, level, message, ...meta } = info;
 
     return `${timestamp} [${level}]: ${message} ${
@@ -16,25 +25,14 @@ const formatter = winston.format.combine(
 
 class Logger {
   constructor() {
-    const transportConsole = new winston.transports.Console({
-      handleExceptions: true,
-    });
-
-    const logFile = 'tmp/backend.log';
-    const transportFile = new winston.transports.File({
-      filename: logFile,
-      handleExceptions: true,
-    });
-
-    const transports = [transportConsole, transportFile];
-
-    this.logger = winston.createLogger({
-      levels: winston.config.syslog.levels,
-      level: 'info',
-      exitOnError: false,
-      transports,
+    this.logger = createLogger({
+      levels: config.syslog.levels,
+      level: process.env.LOG_LEVEL || 'info',
       format: formatter,
+      exitOnError: false,
     });
+    this.logger.add(transportConsole);
+    this.logger.add(transportFile);
   }
 
   info(msg, meta) {
@@ -45,8 +43,8 @@ class Logger {
     this.logger.debug(msg, meta);
   }
 
-  warn(msg, meta) {
-    this.logger.warn(msg, meta);
+  warning(msg, meta) {
+    this.logger.warning(msg, meta);
   }
 
   error(msg, meta) {

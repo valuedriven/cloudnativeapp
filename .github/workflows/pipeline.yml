@@ -37,5 +37,5 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: deploy app
-        run: echo 'deploy app'
+      - name: deploy app to production
+        run: echo 'deploy app to production'

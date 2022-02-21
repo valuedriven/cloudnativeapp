@@ -25,4 +25,17 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build
-          path: frontend/build
+          path: frontend/.next
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: run app tests
+        run: echo 'run app tests'
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy app
+        run: echo 'deploy app'

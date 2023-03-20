@@ -1,3 +1,4 @@
+```mermaid
     C4Context
       title System Context diagram for Internet Banking System
       Enterprise_Boundary(b0, "BankBoundary0") {
@@ -40,3 +41,4 @@
       UpdateRelStyle(SystemC, customerA, $textColor="red", $lineColor="red", $offsetX="-50", $offsetY="20")
 
       UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
+ ```

@@ -1,4 +1,4 @@
-C4Context
+    C4Context
       title System Context diagram for Internet Banking System
       Enterprise_Boundary(b0, "BankBoundary0") {
         Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
